@@ -17,8 +17,14 @@ export class PrismaService
       throw new Error('DATABASE_URL environment variable is not set');
     }
 
-    const pool = new Pool({ connectionString });
-    const adapter = new PrismaPg(pool);
+const pool = new Pool({
+  connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
+const adapter = new PrismaPg(pool);
 
     super({ 
       adapter,
@@ -30,11 +36,9 @@ export class PrismaService
 
   async onModuleInit() {
     await this.$connect();
-    console.log('✅ Prisma connected to database');
   }
 
   async onModuleDestroy() {
     await this.$disconnect();
-    console.log('👋 Prisma disconnected from database');
   }
 }
