@@ -2,24 +2,24 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 class OptionResponseDto {
-  @ApiProperty()
+  @ApiProperty({ example: 1 })
   id: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'Jump right in' })
   text: string;
 }
 
 export class QuestionResponseDto {
-  @ApiProperty()
+  @ApiProperty({ example: 1 })
   id: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'When facing a new challenge, you:' })
   text: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: 1.5 })
   weight: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: 1 })
   order: number;
 
   @ApiProperty({ type: [OptionResponseDto] })
@@ -27,13 +27,15 @@ export class QuestionResponseDto {
 }
 
 export class PersonalityMetadataDto {
-  @ApiProperty()
+  @ApiProperty({ example: 1 })
   id: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'The Adventurer' })
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({ 
+    example: 'You thrive on new experiences and spontaneous decisions.' 
+  })
   description: string;
 }
 
