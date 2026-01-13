@@ -1,98 +1,102 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+🧠 Personality Quiz Platform - Backend API
+A production-ready personality quiz backend built with NestJS, PostgreSQL, and Prisma. Features weighted scoring, tie-breaking logic, and full quiz attempt tracking.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+⦿ Quick Links
+Live API: https://personality-quiz-backend-eusl.onrender.com
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Swagger Docs: https://personality-quiz-backend-eusl.onrender.com/api
 
-## Description
+Frontend: https://paradox-quiz.vercel.app
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Database: Neon PostgreSQL (Cloud)
 
-## Project setup
+Note: Swagger UI is enabled in production for easy endpoint testing during review. Normally this would be restricted in production.
 
-```bash
-$ npm install
-```
+⦿ Core Features
+Quiz Management: 5 questions, 4 options each, 4 personality types
 
-## Compile and run the project
+Intelligent Scoring: Weighted questions with tie-breaking rules
 
-```bash
-# development
-$ npm run start
+Data Persistence: Store attempts with detailed answer breakdown
 
-# watch mode
-$ npm run start:dev
+Validation: Multi-layer validation (DTO, business logic, database)
 
-# production mode
-$ npm run start:prod
-```
+Production Ready: Connection pooling, SSL, error handling
 
-## Run tests
+⦿ Tech Stack
+Backend: NestJS 11 + TypeScript
 
-```bash
-# unit tests
-$ npm run test
+Database: PostgreSQL (Neon)
 
-# e2e tests
-$ npm run test:e2e
+ORM: Prisma 7 with PostgreSQL adapter
 
-# test coverage
-$ npm run test:cov
-```
+Deployment: Render (Backend) + Neon (Database)
 
-## Deployment
+Documentation: Swagger/OpenAPI
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+⦿ Key Endpoints
+GET /quiz - Get quiz configuration (questions + personalities)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+POST /quiz/submit - Submit answers, get personality result with scoring
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+GET /quiz/attempt/:id - Retrieve specific attempt
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+GET /attempts - Paginated attempt history
 
-## Resources
+GET /questions/personalities - Get personality metadata
 
-Check out a few resources that may come in handy when working with NestJS:
+⦿ How It Works
+User answers all 5 questions (each has 4 options)
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Backend calculates scores: personalityScore = optionPoints × questionWeight
 
-## Support
+Tie-breaking: Highest raw points → Lowest personality ID
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Returns personality result with score breakdown
 
-## Stay in touch
+⦿ Deployment
+Backend: Render 
+Database: Neon 
+Frontend: Vercel 
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+⦿ Scoring Example
 
-## License
+Question 1 (weight: 1.5)
+Option A → Adventurer: 10 points × 1.5 = 15 points
+Total Score = Σ(optionPoints × questionWeight)
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+⦿ Quick Test
+
+# Get quiz config
+curl https://personality-quiz-backend-eusl.onrender.com/quiz
+
+# Submit quiz (Adventurer profile)
+curl -X POST https://personality-quiz-backend-eusl.onrender.com/quiz/submit \
+  -H "Content-Type: application/json" \
+  -d '{
+    "answers": [
+      {"questionId": 1, "optionId": 1},
+      {"questionId": 2, "optionId": 5},
+      {"questionId": 3, "optionId": 9},
+      {"questionId": 4, "optionId": 13},
+      {"questionId": 5, "optionId": 17}
+    ]
+  }'
+⦿ Local Setup
+
+npm install
+npx prisma db push
+npm run seed
+npm run start:dev
+
+🤝 What This Demonstrates
+Full-stack architecture with clear separation of concerns
+
+Production deployment with cloud databases
+
+Business logic implementation (scoring, validation, tie-breaking)
+
+RESTful API design with proper error handling
+
+Database modeling with Prisma ORM
+
