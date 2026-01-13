@@ -15,16 +15,17 @@ A production-ready personality quiz backend built with NestJS, PostgreSQL, and P
 
 ⦿ This backend runs on Render’s free tier, which may idle the server after inactivity.
 To prevent cold starts, UptimeRobot monitoring is enabled to send an HTTP request to the /health endpoint every 5 minutes, keeping the service responsive.
+
 # Core Features
-Quiz Management: 5 questions, 4 options each, 4 personality types
+⦿ Quiz Management: 5 questions, 4 options each, 4 personality types
 
-Intelligent Scoring: Weighted questions with tie-breaking rules
+⦿ Intelligent Scoring: Weighted questions with tie-breaking rules
 
-Data Persistence: Store attempts with detailed answer breakdown
+⦿ Data Persistence: Store attempts with detailed answer breakdown
 
-Validation: Multi-layer validation (DTO, business logic, database)
+⦿ Validation: Multi-layer validation (DTO, business logic, database)
 
-Production Ready: Connection pooling, SSL, error handling
+⦿ Production Ready: Connection pooling, SSL, error handling
 
 # Tech Stack
 Backend: NestJS 11 + TypeScript
@@ -38,35 +39,35 @@ Deployment: Render (Backend) + Neon (Database)
 Documentation: Swagger/OpenAPI
 
 # Key Endpoints
-GET /quiz - Get quiz configuration (questions + personalities)
+⦿ GET /quiz - Get quiz configuration (questions + personalities)
 
-POST /quiz/submit - Submit answers, get personality result with scoring
+⦿ POST /quiz/submit - Submit answers, get personality result with scoring
 
-GET /quiz/attempt/:id - Retrieve specific attempt
+⦿ GET /quiz/attempt/:id - Retrieve specific attempt
 
-GET /attempts - Paginated attempt history
+⦿ GET /attempts - Paginated attempt history
 
-GET /questions/personalities - Get personality metadata
+⦿ GET /questions/personalities - Get personality metadata
 
 # How It Works
-User answers all 5 questions (each has 4 options)
+⦿ User answers all 5 questions (each has 4 options)
 
-Backend calculates scores: personalityScore = optionPoints × questionWeight
+⦿ Backend calculates scores: personalityScore = optionPoints × questionWeight
 
-Tie-breaking: Highest raw points → Lowest personality ID
+⦿ Tie-breaking: Highest raw points → Lowest personality ID
 
-Returns personality result with score breakdown
+⦿ Returns personality result with score breakdown
 
 # Deployment
-Backend: Render 
-Database: Neon 
-Frontend: Vercel 
+⦿ Backend: Render 
+⦿ Database: Neon 
+⦿ Frontend: Vercel 
 
 # Scoring Example
 
-Question 1 (weight: 1.5)
-Option A → Adventurer: 10 points × 1.5 = 15 points
-Total Score = Σ(optionPoints × questionWeight)
+⦿ Question 1 (weight: 1.5)
+⦿ Option A → Adventurer: 10 points × 1.5 = 15 points
+⦿ Total Score = Σ(optionPoints × questionWeight)
 
 # Quick Test
 
@@ -87,11 +88,11 @@ curl -X POST https://personality-quiz-backend-eusl.onrender.com/quiz/submit \
   }'
 
 🤝 What This Demonstrates
-Full-stack architecture with clear separation of concerns
+⦿ Full-stack architecture with clear separation of concerns
 
-Production deployment with cloud databases
+⦿ Production deployment with cloud databases
 
-Business logic implementation (scoring, validation, tie-breaking)
+⦿ Business logic implementation (scoring, validation, tie-breaking)
 
 RESTful API design with proper error handling
 
