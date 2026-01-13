@@ -6,7 +6,11 @@ A production-ready personality quiz backend built with NestJS, PostgreSQL, and P
 
 ⦿ Swagger Docs: https://personality-quiz-backend-eusl.onrender.com/api
 
-⦿ Frontend: https://paradox-quiz.vercel.app
+⦿ Front-end: https://paradox-quiz.vercel.app
+
+⦿ Front-end Repository: [[https://github.com/mingodragovic/back-end-quiz](https://github.com/mingodragovic/front-end-quiz)](https://github.com/mingodragovic/front-end-quiz)
+
+
 
 ⦿ Database: Neon PostgreSQL (Cloud)
 
