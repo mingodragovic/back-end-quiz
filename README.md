@@ -1,4 +1,4 @@
-🧠 Personality Quiz Platform - Backend API
+# Personality Quiz Platform - Backend API
 A production-ready personality quiz backend built with NestJS, PostgreSQL, and Prisma. Features weighted scoring, tie-breaking logic, and full quiz attempt tracking.
 
 # Quick Links
