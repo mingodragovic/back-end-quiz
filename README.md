@@ -85,12 +85,6 @@ curl -X POST https://personality-quiz-backend-eusl.onrender.com/quiz/submit \
       {"questionId": 5, "optionId": 17}
     ]
   }'
-⦿ Local Setup
-
-npm install
-npx prisma db push
-npm run seed
-npm run start:dev
 
 🤝 What This Demonstrates
 Full-stack architecture with clear separation of concerns
