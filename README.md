@@ -74,18 +74,6 @@ Documentation: Swagger/OpenAPI
 ⦿ Get quiz config
 curl https://personality-quiz-backend-eusl.onrender.com/quiz
 
-⦿ Submit quiz (Adventurer profile)
-curl -X POST https://personality-quiz-backend-eusl.onrender.com/quiz/submit \
-  -H "Content-Type: application/json" \
-  -d '{
-    "answers": [
-      {"questionId": 1, "optionId": 1},
-      {"questionId": 2, "optionId": 5},
-      {"questionId": 3, "optionId": 9},
-      {"questionId": 4, "optionId": 13},
-      {"questionId": 5, "optionId": 17}
-    ]
-  }'
 
 # What This Demonstrates
 
